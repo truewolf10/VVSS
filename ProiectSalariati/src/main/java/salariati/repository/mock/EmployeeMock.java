@@ -16,8 +16,8 @@ public class EmployeeMock implements EmployeeRepositoryInterface {
 	
 	public EmployeeMock() {
 		
-//		employeeValidator = new EmployeeValidator();
-//		employeeList = new ArrayList<Employee>();
+		employeeValidator = new EmployeeValidator();
+		employeeList = new ArrayList<>();
 //
 //		Employee Ionel   = new Employee("Pacuraru", "1234567890876", DidacticFunction.ASISTENT, "2500");
 //		Employee Mihai   = new Employee("Dumitrescu", "1234567890876", DidacticFunction.LECTURER, "2500");
