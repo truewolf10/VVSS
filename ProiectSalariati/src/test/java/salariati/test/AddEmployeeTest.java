@@ -71,6 +71,7 @@ public class AddEmployeeTest {
 	/**
 	 * Ec1 = lastName ∉ [a-zA-Z]
 	 */
+	@SuppressWarnings("Duplicates")
 	@Test
 	public void testAddNewEmployee9() {
 		Employee newEmployee = new Employee("ValidFirstName",null, "1910509055057", DidacticFunction.ASISTENT, 3000);

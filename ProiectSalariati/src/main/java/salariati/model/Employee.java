@@ -28,7 +28,7 @@ public class Employee {
 		this.firstName = "";
 		this.lastName  = "";
 		this.cnp       = "";
-		this.function  = DidacticFunction.ASISTENT;
+		this.function  = null;
 		this.salary    = 0f;
 	}
 	
@@ -163,34 +163,34 @@ public class Employee {
 	 * @throws EmployeeException
 	 */
 	public static Employee getEmployeeFromString(String _employee, int line) throws EmployeeException {
-		Employee employee = new Employee();
+		Employee employee = new Employee();							//c1
 		
-		String[] attributes = _employee.split("[;]");
+		String[] attributes = _employee.split("[;]");			//c2
 		
-		if( attributes.length != 5 ) {
-			throw new EmployeeException("Invalid line at: " + line);
+		if( attributes.length != 5 ) {									//r3
+			throw new EmployeeException("Invalid line at: " + line);	//c4
 		} else {
-			EmployeeValidator validator = new EmployeeValidator();
-			employee.setFirstName(attributes[0]);
-			employee.setLastName(attributes[1]);
-			employee.setCnp(attributes[2]);
+			EmployeeValidator validator = new EmployeeValidator();		//c5
+			employee.setFirstName(attributes[0]);						//c6
+			employee.setLastName(attributes[1]);						//c7
+			employee.setCnp(attributes[2]);								//c8
 			
-			if(attributes[3].equals("ASISTENT"))
-				employee.setFunction(DidacticFunction.ASISTENT);
-			if(attributes[3].equals("LECTURER"))
-				employee.setFunction(DidacticFunction.LECTURER);
-			if(attributes[3].equals("TEACHER"))
-				employee.setFunction(DidacticFunction.TEACHER);
-			if(attributes[3].equals("CONFERENTIAR"))
-				employee.setFunction(DidacticFunction.CONFERENTIAR);
+			if(attributes[3].equals("ASISTENT"))						//r9
+				employee.setFunction(DidacticFunction.ASISTENT);		//c10
+			if(attributes[3].equals("LECTURER"))						//r11
+				employee.setFunction(DidacticFunction.LECTURER);		//c12
+			if(attributes[3].equals("TEACHER"))							//r13
+				employee.setFunction(DidacticFunction.TEACHER);		//c14
+			if(attributes[3].equals("CONFERENTIAR"))					//r15
+				employee.setFunction(DidacticFunction.CONFERENTIAR);	//c16
 			
-			employee.setSalary(Float.parseFloat(attributes[4]));
+			employee.setSalary(Float.parseFloat(attributes[4]));		//c17
 			
-			if( !validator.isValid(employee) ) {
-				throw new EmployeeException("Invalid line at: " + line);
+			if( !validator.isValid(employee) ) {						//r18
+				throw new EmployeeException("Invalid line at: " + line);//c19
 			}
 		}
 		
-		return employee;
+		return employee;												//c20
 	}
 }
