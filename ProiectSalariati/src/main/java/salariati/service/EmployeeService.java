@@ -43,7 +43,12 @@ public class EmployeeService {
 		Comparator<Employee> comparator = Comparator.comparing(Employee::getSalary).reversed();
 		comparator = comparator.thenComparing((e1) -> {
 			int year = Year.now().getValue();
-			return year-Integer.valueOf(e1.getCnp().substring(1,2));
+			int yearOfBirth = Integer.valueOf(e1.getCnp().substring(1,3));
+			if (yearOfBirth < 21)
+				yearOfBirth += 2000;
+			else
+				yearOfBirth += 1900;
+			return year-yearOfBirth;
 		});
 		employeeList.sort(comparator);
 		return employeeList;
