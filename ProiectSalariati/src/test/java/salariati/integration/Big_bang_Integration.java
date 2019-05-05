@@ -20,6 +20,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+@SuppressWarnings("Duplicates")
 public class Big_bang_Integration {
 
     private EmployeeService controller;
